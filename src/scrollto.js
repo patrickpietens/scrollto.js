@@ -14,9 +14,6 @@ const defaultOptions = {
     offsetY: 0,
 };
 
-// Map containing all running tweens
-let tweens = new Map();
-
 /**
  * Convenience method to set the scrollposition of an element
  * @param  {number} x Horizontal position
@@ -37,8 +34,8 @@ Node.prototype.scrollToPosition = window.scrollToPosition = function (x, y, opti
     options = Object.assign({}, defaultOptions, options);
 
     // Cancel previous tweens on the DOM element
-    if (tweens.has(this)) {
-        raf.cancel(tweens.get(this));
+    if (!!this._scrollRequest) {
+        raf.cancel(this._scrollRequest);
 	}
 
     // Set the scroll properties directly on the element when the duration is 0 or less
@@ -68,7 +65,11 @@ Node.prototype.scrollToPosition = window.scrollToPosition = function (x, y, opti
         if (myElapsedTime >= options.duration) {
             this.scrollTo(x, y);
 
-			return tweens.delete(this);
+            // Cleanup temporary variables
+            raf.cancel(this._scrollRequest);
+            this._scrollRequest = null;
+
+            return;
         }
 
         // Otherwise calculate the scroll values using the custom easing function
@@ -76,8 +77,8 @@ Node.prototype.scrollToPosition = window.scrollToPosition = function (x, y, opti
             myY = easeOutCubic(myElapsedTime, initialY, distanceY, options.duration);
 
         this.scrollTo(myX, myY);
+        this._scrollRequest = raf(tick.bind(this));
 
-        tweens.set(this, raf(tick.bind(this)));
     }.bind(this));
 };
 
