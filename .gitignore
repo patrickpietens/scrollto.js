@@ -1,0 +1,6 @@
+.DS_Store
+.tmp
+.gulp
+
+npm-debug.log
+node_modules/*

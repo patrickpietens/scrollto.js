@@ -1,0 +1,6 @@
+{
+    "preset": "airbnb",
+    "excludeFiles": ["./gulp-tasks/**"],
+    "validateIndentation": null,
+    "disallowMultipleVarDecl": null
+}
