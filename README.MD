@@ -3,7 +3,7 @@ Smooth scroll to a specific position or target element
 
 ## Examples
 ```javascript
-import scrollTo from 'scrollto.js';
+import 'scrollto.js';
 
 // Scroll the window object to a specific position
 window.scrollToPosition(100, 100);
