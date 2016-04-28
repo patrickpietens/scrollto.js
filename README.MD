@@ -33,7 +33,7 @@ window.scrollToElement(myBar, { horizontal: false, offsetY: 100 });
 
 ## Installation
 ```bash
-$ npm install isvisible.js --save
+$ npm install scrollto.js --save
 ```
 
 ## License
