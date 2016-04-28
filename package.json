@@ -12,7 +12,12 @@
     "type": "git",
     "url": "git+https://github.com/patrickpietens/scrollto.js.git"
   },
-  "keywords": [],
+  "keywords": [
+      "scroll",
+      "tween",
+      "animation",
+      "scrollTo"
+  ],
   "author": "Patrick Pietens <hello@patrickpietens.com> (http://patrickpietens.com)",
   "license": "MIT",
   "bugs": {
