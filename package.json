@@ -1,6 +1,6 @@
 {
   "name": "scrollto.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Smooth scroll to a specific position or target element",
   "main": "dist/scrollto.js",
   "scripts": {
